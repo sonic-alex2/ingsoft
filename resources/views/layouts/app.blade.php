@@ -23,6 +23,24 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+
+                @guest
+                @else
+                <a class="btn btn-info btn-sm ml-2" href="{{ route('buses.index') }}">Buses</a>
+
+                <a class="btn btn-info btn-sm ml-2" href="{{ route('person-types.index') }}">Tipos de persona</a>
+
+                <a class="btn btn-info btn-sm ml-2" href="{{ route('people.index') }}">Personas</a>
+
+                <a class="btn btn-info btn-sm ml-2" href="{{ route('accesses.index') }}">Accesos</a>
+
+                <a class="btn btn-info btn-sm ml-2" href="{{ route('stations.index') }}">Estaciones</a>
+
+
+
+
+                @endguest
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -54,10 +72,12 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
+
+
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
